@@ -90,6 +90,9 @@ int main()
   }
 
   UnloadTexture(Cloud);
+  UnloadTexture(Logo);
+  UnloadTexture(start_button);
+  UnloadTexture(start_button_hover);
   StopMusicStream(Menu_bgm);
   CloseWindow();
   return 0;
