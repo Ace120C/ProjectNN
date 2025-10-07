@@ -6,7 +6,7 @@ SceneID CharSelectScene(void)
   Music CharSelect = LoadMusicStream("./music/char.mp3");
   Texture2D NNProfile = LoadTexture("./assets/NN.png");
   Texture2D GSProfile = LoadTexture("./assets/gold ship.png");
-  InitAudioDevice();
+  SceneID Next_Scene = CHAR_SELECT;
   PlayMusicStream(CharSelect);
 
   SetTargetFPS(60);
@@ -21,11 +21,12 @@ SceneID CharSelectScene(void)
     EndDrawing();
 
     if (IsKeyPressed(KEY_T)) {
-      return TITLE;
+      Next_Scene = TITLE;
+      break;
     }
   }
   UnloadTexture(NNProfile);
   UnloadTexture(GSProfile);
   StopMusicStream(CharSelect);
-  return CHAR_SELECT;
+  return Next_Scene;
 }

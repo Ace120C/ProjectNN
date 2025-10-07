@@ -18,6 +18,7 @@ SceneID TitleScene(void)
   Texture2D Logo = LoadTexture("./assets/logo.png");
   Texture2D start_button = LoadTexture("./assets/start-button.png");
   Texture2D start_button_hover = LoadTexture("./assets/start-button-hover.png");
+  SceneID Next_Scene = TITLE;
  
   SetTargetFPS(60);
 
@@ -57,7 +58,8 @@ SceneID TitleScene(void)
       IsMouseButtonPressed(MOUSE_BUTTON_LEFT) &&
       CheckCollisionPointRec(mouse, StartButton_Pos)) {
       start_pressed = true;
-      return CHAR_SELECT;
+      Next_Scene = CHAR_SELECT;
+      break;
     }
 
     if (!start_pressed &&
@@ -88,11 +90,13 @@ SceneID TitleScene(void)
     EndDrawing();
   }
 
+  StopMusicStream(Menu_bgm);
+  UnloadMusicStream(Menu_bgm);
+
   UnloadTexture(Cloud);
   UnloadTexture(Logo);
   UnloadTexture(start_button);
   UnloadTexture(start_button_hover);
-  StopMusicStream(Menu_bgm);
-  return TITLE;
+  return Next_Scene;
 }
 
