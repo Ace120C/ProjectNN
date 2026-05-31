@@ -12,7 +12,7 @@ int main(void)
     while (!WindowShouldClose() && current != EXIT_SCENE) {
         switch (current) {
             case TITLE:       current = TitleScene();       break;
-            case CHAR_SELECT: current = CharSelectScene();  break;
+            case SKILL_SELECT: current = Skill_SelectScene();  break;
             default:          current = EXIT_SCENE;         break;
         }
     }

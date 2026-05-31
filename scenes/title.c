@@ -58,7 +58,7 @@ SceneID TitleScene(void)
       IsMouseButtonPressed(MOUSE_BUTTON_LEFT) &&
       CheckCollisionPointRec(mouse, StartButton_Pos)) {
       start_pressed = true;
-      Next_Scene = CHAR_SELECT;
+      Next_Scene = SKILL_SELECT;
       break;
     }
 

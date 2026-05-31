@@ -1,23 +1,22 @@
 #include <raylib.h>
 #include "scenes.h"
 
-SceneID CharSelectScene(void)
+SceneID Skill_SelectScene(void)
 {
-  Music CharSelect = LoadMusicStream("./music/char.mp3");
-  Texture2D NNProfile = LoadTexture("./assets/NN.png");
-  Texture2D GSProfile = LoadTexture("./assets/gold ship.png");
-  SceneID Next_Scene = CHAR_SELECT;
-  PlayMusicStream(CharSelect);
+  Music SkillMenu = LoadMusicStream("./music/char.mp3");
+  Texture2D Background = LoadTexture("./assets/bg.png");
+  Texture2D Square = LoadTexture("./assets/square.png");
+  SceneID Next_Scene = SKILL_SELECT;
+  PlayMusicStream(SkillMenu);
 
   SetTargetFPS(60);
 
   while (!WindowShouldClose()) {
-    UpdateMusicStream(CharSelect);
+    UpdateMusicStream(SkillMenu);
     BeginDrawing();
-    ClearBackground(GRAY);
-    DrawTexture(NNProfile, 150, 50, RAYWHITE);
-    DrawTexture(GSProfile, 700, 50, RAYWHITE);
-    DrawText("Choose Your Character", 340, 670, 50, RED);
+    ClearBackground(RAYWHITE);
+    DrawTexture(Background, 0, 0, RAYWHITE);
+    DrawTexture(Square, 10, 52, RAYWHITE);
     EndDrawing();
 
     if (IsKeyPressed(KEY_T)) {
@@ -25,8 +24,7 @@ SceneID CharSelectScene(void)
       break;
     }
   }
-  UnloadTexture(NNProfile);
-  UnloadTexture(GSProfile);
-  StopMusicStream(CharSelect);
+  UnloadTexture(Background);
+  StopMusicStream(SkillMenu);
   return Next_Scene;
 }

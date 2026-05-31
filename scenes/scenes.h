@@ -3,12 +3,12 @@
 
 typedef enum SceneID {
     TITLE,
-    CHAR_SELECT,
+    SKILL_SELECT,
     EXIT_SCENE
 } SceneID;
 
 SceneID TitleScene(void);
-SceneID CharSelectScene(void);
+SceneID Skill_SelectScene(void);
 
 #endif // SCENES_H
 
